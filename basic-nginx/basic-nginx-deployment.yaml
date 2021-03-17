@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-nginx-webserver
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: basic-nginx-webserver
+  template:
+    metadata:
+      labels:
+        app: basic-nginx-webserver
+    spec:
+      containers:
+      - image: nginxinc/nginx-unprivileged@sha256:6e65e658e566cf609effac988735fd8833832c4becae05d257729a70da4bca7e
+        name: nginx
+        ports:
+        - containerPort: 8080
