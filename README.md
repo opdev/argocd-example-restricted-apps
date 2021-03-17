@@ -1,0 +1,1 @@
+# ArgoCD Example Restricted Apps
